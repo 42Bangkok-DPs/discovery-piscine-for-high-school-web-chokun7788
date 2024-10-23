@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <input type="number" id="left" placeholder="Enter left number" min="0">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" name="" id="right" placeholder="Enter left number" min="0">
+    <button onclick="calculate()">Try me!</button>
+    <script>
+        function calculate() {
+    const leftNum = parseInt(document.getElementById('left').value);
+    const operator = document.getElementById('operator').value;
+    const rightNum = parseInt(document.getElementById('right').value);
+
+    if (isNaN(leftNum) || isNaN(rightNum)) return alert('Error :(');
+
+    let result;
+    switch (operator) {
+        case '+': result = leftNum + rightNum; break;
+        case '-': result = leftNum - rightNum; break;
+        case '*': result = leftNum * rightNum; break;
+        case '/': 
+        case '%':
+            if (rightNum === 0) return alert("It's over 9000!");
+            result = operator === '/' ? leftNum / rightNum : leftNum % rightNum;
+            break;
+        default: return alert('Error :(');
+    }
+
+    alert(result);
+}
+
+    </script>
+</body>
+</html>
