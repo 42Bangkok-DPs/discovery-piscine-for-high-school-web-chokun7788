@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #balloon{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+
+        <div onclick='hello()' onmouseout="world()" id="balloon"></div>
+
+    <script>
+        let x = 200;
+        let color = ['red','green','blue'];
+        let n = 0;
+
+        function hello() {
+            if (x<=420){
+                x += 10;
+                
+
+                n = (n+1) % color.length;
+                document.getElementById('balloon').style.width = x + 'px';
+                document.getElementById('balloon').style.height = x + 'px';
+                document.getElementById('balloon').style.backgroundColor = `${color[n]}`;
+                console.log(x,n)
+                
+            }
+            else{
+                x = 200; 
+                document.getElementById('balloon').style.width = x + 'px';
+                document.getElementById('balloon').style.height = x + 'px';
+                document.getElementById('balloon').style.backgroundColor = `${color[n]}`;
+                console.log(x,n)
+                }
+            
+        }
+        function world(){
+            if (x>200){
+                x -= 5;
+                n = (n-1 + color.length) % color.length;
+
+                document.getElementById('balloon').style.width = x + 'px';
+                document.getElementById('balloon').style.height = x + 'px';
+                document.getElementById('balloon').style.backgroundColor = `${color[n]}`;
+
+                console.log(x,n)
+            }
+            else{
+                console.log("cap")
+            }
+        }
+    </script>
+</body>
+</html>
